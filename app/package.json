@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "next": "latest",
-    "onnxjs": "^0.1.8",
+    "onnxruntime-node": "^1.8.0",
+    "onnxruntime-web": "^1.8.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
