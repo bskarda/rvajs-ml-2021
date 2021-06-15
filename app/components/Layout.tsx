@@ -16,10 +16,13 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
     </Head>
     <header>
       <nav>
+        <Link href="/">
+          <a>Home</a>
+        </Link>
+        {' '}|{' '}
         <Link href="/client">
           <a>Client Side</a>
         </Link>
-        {' '}|{' '}
         <Link href="/server">
           <a>Server Side</a>
         </Link>
@@ -28,8 +31,8 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
           <a>API</a>
         </Link>
         {' '}|{' '}
-        <Link href="/">
-          <a>Home</a>
+        <Link href="/james_river_data_report.html">
+          <a>Data</a>
         </Link>
       </nav>
     </header>
