@@ -60,6 +60,7 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
     {children}
     <footer>
       <hr />
+      <span><Link href="https://github.com/bskarda/rvajs-ml-2021"><a>github/bskarda/rvajs-ml-2021</a></Link></span>
     </footer>
   </div>
 )
