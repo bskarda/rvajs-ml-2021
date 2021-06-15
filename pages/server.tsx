@@ -15,19 +15,20 @@ function todayMonth() {
 }
 
 export async function getServerSideProps(context) {
-  console.log(`Rendering for ${context}`)
-
   const env = process.env.NODE_ENV
   var path;
   if(env == "development"){
-    path = './public/dt_james.onnx'
+    path = 'http://localhost:3000/dt_james.onnx'
   }
   else if (env == "production"){
-    path = './dt_james.onnx'
+    path = 'https://rvajs-ml-2021.vercel.app/dt_james.onnx'
   }
 
+  const res = await fetch(path)
+  const model = await res.arrayBuffer()
+
   // execution provider is only needed because we are running web and node
-  const session = await InferenceSession.create(path, { executionProviders: [{ name: 'cpu'}]});
+  const session = await InferenceSession.create(model, { executionProviders: [{ name: 'cpu'}]});
 
   // prepare inputs. a tensor need its corresponding TypedArray as data
   const dataA = Float32Array.from([todayMonth(), todayDay()]);

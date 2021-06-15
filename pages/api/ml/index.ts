@@ -3,17 +3,19 @@ import { InferenceSession, Tensor } from 'onnxruntime-node';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    console.log(`Recieved request ${req}`)
-
     const env = process.env.NODE_ENV
     var path;
     if(env == "development"){
-      path = './public/dt_james.onnx'
+      path = 'http://localhost:3000/dt_james.onnx'
     }
     else if (env == "production"){
-      path = './dt_james.onnx'
+      path = 'https://rvajs-ml-2021.vercel.app/dt_james.onnx'
     }
-    const session = await InferenceSession.create(path, { executionProviders: [{ name: 'cpu'}]});
+
+    const fetchRes = await fetch(path)
+    const model = await fetchRes.arrayBuffer()
+
+    const session = await InferenceSession.create(model, { executionProviders: [{ name: 'cpu'}]});
 
     // default to today
     const date = new Date();
