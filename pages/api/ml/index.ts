@@ -5,7 +5,15 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     console.log(`Recieved request ${req}`)
 
-    const session = await InferenceSession.create('./public/dt_james.onnx', { executionProviders: [{ name: 'cpu'}]});
+    const env = process.env.NODE_ENV
+    var path;
+    if(env == "development"){
+      path = './public/dt_james.onnx'
+    }
+    else if (env == "production"){
+      path = './dt_james.onnx'
+    }
+    const session = await InferenceSession.create(path, { executionProviders: [{ name: 'cpu'}]});
 
     // default to today
     const date = new Date();
