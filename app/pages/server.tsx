@@ -3,7 +3,7 @@ import Layout from '../components/Layout'
 import { Tensor, InferenceSession } from "onnxruntime-node";
 
 export async function getServerSideProps(context) {
-  const session = await InferenceSession.create('http://localhost:3000/dt_james.onnx');
+  const session = await InferenceSession.create('./public/dt_james.onnx', { executionProviders: [{ name: 'cpu'}]});
 
   // prepare inputs. a tensor need its corresponding TypedArray as data
   const dataA = Float32Array.from([6,15]);
