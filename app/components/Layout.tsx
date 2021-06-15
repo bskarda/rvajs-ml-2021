@@ -23,6 +23,7 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
         <Link href="/client">
           <a>Client Side</a>
         </Link>
+        {' '}|{' '}
         <Link href="/server">
           <a>Server Side</a>
         </Link>
@@ -33,6 +34,26 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
         {' '}|{' '}
         <Link href="/james_river_data_report.html">
           <a>Data</a>
+        </Link>
+        {' '}|{' '}
+        <Link href="/explore_data.html">
+          <a>Notebook - Explore</a>
+        </Link>
+        {' '}|{' '}
+        <Link href="/unsupervised_clustering.html">
+          <a>Notebook - Unsupervised Clustering</a>
+        </Link>
+        {' '}|{' '}
+        <Link href="/supervised_classification.html">
+          <a>Notebook - Supervised Classification</a>
+        </Link>
+        {' '}|{' '}
+        <Link href="/supervised_regression.html">
+          <a>Notebook - Supervised Regression</a>
+        </Link>
+        {' '}|{' '}
+        <Link href="/onnx_supervised_regression.html">
+          <a>Notebook - Onnx Serialization</a>
         </Link>
       </nav>
     </header>
