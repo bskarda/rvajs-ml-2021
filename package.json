@@ -11,7 +11,7 @@
     "convert": "cd model && poetry run jupyter nbconvert --output-dir='../public/' --to html *.ipynb"
   },
   "dependencies": {
-    "next": "latest",
+    "next": "^10.2.3",
     "onnxruntime-node": "^1.8.0",
     "onnxruntime-web": "^1.8.0",
     "react": "^17.0.1",
