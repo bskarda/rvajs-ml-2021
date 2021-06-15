@@ -3,6 +3,8 @@ import { InferenceSession, Tensor } from 'onnxruntime-node';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
+    console.log(`Recieved request ${req}`)
+
     const session = await InferenceSession.create('./public/dt_james.onnx', { executionProviders: [{ name: 'cpu'}]});
 
     // default to today

@@ -15,6 +15,8 @@ function todayMonth() {
 }
 
 export async function getServerSideProps(context) {
+  console.log(`Rendering for ${context}`)
+
   // execution provider is only needed because we are running web and node
   const session = await InferenceSession.create('./public/dt_james.onnx', { executionProviders: [{ name: 'cpu'}]});
 
